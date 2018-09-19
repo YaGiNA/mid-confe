@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{txfonts}
 \usepackage{array}
+\usepackage{url}
 
 \title{自然言語処理によるフェイクニュース判断の自動化}
 \date{平成 30 年 9 月 25 日}
@@ -21,11 +22,20 @@
 \maketitle
 
 \section{背景}
-はじめにの部分はモデルの導入部，背景などを中心に自分の研究の位置づけを書いて下さい．
-必要であれば，引用文献を使って自分の立ち位置を記述することが重要です．
-研究内容をいきなりモデルや実験の説明から始めてはいけません．
-研究目的を達成するために，どのようなアプローチをとるのか，
-これから述べる方法で，何が何処まで明らかに(あるいは期待)出来るかなどを書く必要があるでしょう．
+インターネット環境の浸透により、フェイクニュースの急速な拡散が大きな社会問題として近年取り沙汰されている。
+主に人々の扇動を目的に作られたフェイクニュースは、受け手に専門知識がない場合判断が難しい。
+そこで有識者が発信された情報の信頼性を判断・公表するファクトチェックが主に米国で盛んになっている状況である。
+しかしながら新たに発信される情報とファクトチェックには時間差があり、その間に拡散されてしまう状況となっている。
+そこで過去のファクトチェック結果による機械学習モデルを構築することで、
+新たに発信されるフェイクニュースに対応することを考えた。
+
+今回の実験には、発言引用と真偽の要素を併せ持つデータセットが必要である。
+使用したのは、ファクトチェック機関politifact.comのファクトチェック結果からなる
+LIAR datasetを使用した\cite{pants}。
+LIAR dataset掲載の真偽データはpolitifact.comの評価方法"Truth-O-Meter"に準拠しており、
+真偽の度合いによって"Truth"〜"Pants-on-Fire"までの7段階評価となっている\cite{truth}。
+
+今回の実験では、自然言語処理によってどれだけ正確に信頼性を自動で判定することができるか調べたものとなっている。
 
 \section{課題}
 課題として挙げられるのは、以下の2点である。
@@ -52,7 +62,7 @@
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=5cm]{fig1.jpg}
+    \includegraphics[width=8cm]{fig1.jpg}
     \caption{予備実験の流れ図}
     \label{fig:nagare}
   \end{center}
@@ -104,7 +114,8 @@ F1 score(F値)は上記2値の調和平均を表す。
 
 {\small
 \begin{thebibliography}{*}
-\bibitem{Kinoshita1} 木下 是雄, \textit{理科系の作文技術}, 中公新書 624, 1981.
+  \bibitem{pants}Wang, William Yang. \textit{"liar, liar pants on fire": A new benchmark dataset for fake news detection}. Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)(2017):422-426.
+  \bibitem{truth}Angie Drobnic Holan. \textit{The Principles of the Truth-O-Meter: PolitiFact’s methodology for independent fact-checking}. \url{https://www.politifact.com/truth-o-meter/article/2018/feb/12/principles-truth-o-meter-politifacts-methodology-i/}. (Sep. 18, 2018).
 \end{thebibliography}
 }
 \end{document}
