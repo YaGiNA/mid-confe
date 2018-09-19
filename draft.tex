@@ -70,9 +70,10 @@ LIAR dataset掲載の真偽データはpolitifact.comの評価方法"Truth-O-Met
   \end{center}
 \end{figure}
 
-まずは全体データセットの発言引用を元にword2vecによる単語の分散表現を作成する。
+まずは全体データセットの発言引用を元にword2vec(gensim)による単語の分散表現を作成する。
 その次に各発言内にて、発言がもつ各単語ベクトルを加算・正規化することで、発言のベクトル化を行う。
-最後に、各発言ベクトルと真偽を元にSVMで教師あり学習・検証を実行する。
+最後に、各発言ベクトルと真偽を元にSVM(scikit-learn)で教師あり学習・検証を実行する。
+
 
 LIARデータセットの真偽値に関しては、"Pants-on-Fire"〜"Mostly-False"をFalse、
 "Half-True"〜"True"をTrueとして扱った。
