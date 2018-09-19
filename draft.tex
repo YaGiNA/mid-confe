@@ -27,7 +27,10 @@
 そこで有識者が発信された情報の信頼性を判断・公表するファクトチェックが主に米国で盛んになっている状況である。
 しかしながら新たに発信される情報とファクトチェックには時間差があり、その間に拡散されてしまう状況となっている。
 そこで過去のファクトチェック結果による機械学習モデルを構築することで、
-新たに発信されるフェイクニュースに対応することを考えた。
+新たに発信されるフェイクニュースに対応する研究が行われている\cite{nb}\cite{gilda}。
+しかしながら、新たな自然言語処理手法との関連が不明だったり、
+使用されたデータセットの信頼性(特に真偽)に疑問が残るものだったり、また
+実際に機械学習手法を運用する場合を想定したシステムに未だ有効な提案がないのが現状である。
 
 今回の実験には、発言引用と真偽の要素を併せ持つデータセットが必要である。
 使用したのは、ファクトチェック機関politifact.comのファクトチェック結果からなる
@@ -77,7 +80,7 @@ LIAR dataset掲載の真偽データはpolitifact.comの評価方法"Truth-O-Met
 
 LIARデータセットの真偽値に関しては、"Pants-on-Fire"〜"Mostly-False"をFalse、
 "Half-True"〜"True"をTrueとして扱った。
-なお、その場合の全体件数はTrueはXXXX件, FalseはXXXX件だった。
+なお、その場合の全体件数はTrueは5657件, Falseは7134件だった。
 
 5分割交差検定を行った結果が以下の表\ref{tb:result}の通りである。
 
@@ -113,12 +116,12 @@ F1 score(F値)は上記2値の調和平均を表す。
 そのためには日本における第三者機関によるファクトチェックの活発化が求められるが、
 残念ながらそのような運動があまりみられないのが現状である。
 
-また，引用文献はキチンと入れましょう\cite{Kinoshita1}．引用は，先人に対するリスペクトなので，よほど独立性が高い研究でない限り必要となります．
-
 {\small
 \begin{thebibliography}{*}
+  \bibitem{nb}Mykhailo Granik, Volodymyr Mesyura. \textit{Fake news detection using naive Bayes classifier}. UKRCON(2017):900-903.
+  \bibitem{gilda}Shlok Gilda. \textit{Evaluating machine learning algorithms for fake news detection}. SCOReD(2017):110-115.
   \bibitem{pants}Wang, William Yang. \textit{"liar, liar pants on fire": A new benchmark dataset for fake news detection}. Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)(2017):422-426.
-  \bibitem{truth}Angie Drobnic Holan. \textit{The Principles of the Truth-O-Meter: PolitiFact’s methodology for independent fact-checking}. \url{https://www.politifact.com/truth-o-meter/article/2018/feb/12/principles-truth-o-meter-politifacts-methodology-i/}. (Sep. 18, 2018).
+  \bibitem{truth}Angie Drobnic Holan. \textit{The Principles of the Truth-O-Meter: PolitiFact’s methodology for independent fact-checking}. \url{https://www.politifact.com/truth-o-meter/article/2018/feb/12/principles-truth-o-meter-politifacts-methodology-i/}. (Viewed:Sep. 18, 2018).
 \end{thebibliography}
 }
 \end{document}
