@@ -88,13 +88,12 @@ LIARデータセットの真偽値に関しては、"Pants-on-Fire"〜"Mostly-Fa
   \begin{center}
     \caption{予備実験結果}
     \label{tb:result}
-    \begin{tabular}{c c}
+    \begin{tabular}{l c c c}
       \hline
-      データ名 & 数値 \\
-      \hline \hline
-      Precision & 0.723439 \\
-      Recall & 1.000000 \\
-      F1 score & 0.839530 \\
+      手法 & Precision & Recall & F1 score \\
+      \hline
+      Baseline & 0.557736 & 1.000000 & 0.716085\\
+      Proposed method & 0.723439 & 1.000000 & 0.839530\\
       \hline
     \end{tabular}
   \end{center}
@@ -103,8 +102,10 @@ LIARデータセットの真偽値に関しては、"Pants-on-Fire"〜"Mostly-Fa
 Precision(適合率)は全体でのモデルの正答率、
 Recall(再現率)はTrue全体内でのTrue看破率を表し、
 F1 score(F値)は上記2値の調和平均を表す。
+Baselineとして、全てTrueと判断した場合の数値も併記した。
 
-この結果より、word2vec+SVMの手法は良好な分類成績を示すことが判明した。
+この結果より、word2vec+SVMの手法はBaselineと比較して良好な分類成績を示すことが判明した。
+しかしながら、Precisionに関しては改善の余地が残された。
 
 \section{今後の展望}
 今後は、このフェイクニュース検出システムを実際のSNS上で運用する場合を想定したモデル作りが必要である。
